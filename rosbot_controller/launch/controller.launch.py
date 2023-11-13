@@ -69,14 +69,6 @@ def generate_launch_description():
         ]
     )
 
-    controller_manager_name = PythonExpression(
-        [
-            "'/simulation_controller_manager' if ",
-            use_sim,
-            " else '/controller_manager'",
-        ]
-    )
-
     # Get URDF via xacro
     robot_description_content = Command(
         [
@@ -134,7 +126,7 @@ def generate_launch_description():
         arguments=[
             "joint_state_broadcaster",
             "--controller-manager",
-            controller_manager_name,
+            "/controller_manager",
             "--controller-manager-timeout",
             "120",
         ],
@@ -146,7 +138,7 @@ def generate_launch_description():
         arguments=[
             "rosbot_base_controller",
             "--controller-manager",
-            controller_manager_name,
+            "/controller_manager",
             "--controller-manager-timeout",
             "120",
         ],
@@ -166,7 +158,7 @@ def generate_launch_description():
         arguments=[
             "imu_broadcaster",
             "--controller-manager",
-            controller_manager_name,
+            "/controller_manager",
             "--controller-manager-timeout",
             "120",
         ],

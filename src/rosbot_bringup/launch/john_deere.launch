@@ -14,6 +14,6 @@
   <!-- Load map -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(find rosbot_navigation)/maps/map_with_grey_area.yaml"/>
 
-  <node name="transform_tranformer" pkg="rosbot_navigation" type="transform_tranformer.py"/>
+  <node name="transform_tranformer" pkg="rosbot_navigation" type="transform_transformer.py"/>
   
 </launch>
